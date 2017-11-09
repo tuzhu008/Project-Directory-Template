@@ -1,4 +1,4 @@
-import { createStore, applyMiddleWare } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import rootReducer from './reducers/index';
@@ -7,8 +7,8 @@ const middleware = [ thunk ];
 if (process.env.NODE_ENV !== 'production') {
     middleware.push(createLogger());
   }
-const createStoreWithMiddleWare = applyMiddleWare(...middleware)(createStore);
+const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
 
 export default configureStore (initialState) {
-    return createStoreWithMiddleWare(rootReducer, initialState);
+    return createStoreWithMiddleware(rootReducer, initialState);
 };
