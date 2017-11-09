@@ -9,6 +9,6 @@ if (process.env.NODE_ENV !== 'production') {
   }
 const createStoreWithMiddleWare = applyMiddleWare(...middleware)(createStore);
 
-export default configureStore (initialState) {
+export default function configureStore (initialState) {
     return createStoreWithMiddleWare(rootReducer, initialState);
 };
